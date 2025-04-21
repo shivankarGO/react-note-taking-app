@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Note from "./Note";
+
+// {id: '', text: '', completed: boolean}
+
+const currentNotes = [];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [notes, setNotes] = useState(currentNotes);
+
+  const [newNote, setNewNote] = useState("");
+
+  const addNote = (text) => {
+    const newNote = {
+      id: crypto.randomUUID(),
+      text,
+      completed: false,
+    };
+    setNotes([...notes, newNote]);
+  };
+
+  const toggleCompleted = (id) => {
+    const updatedNotes = notes.map((note) => {
+      if (note.id === id) {
+        return { ...note, completed: !note.completed };
+      }
+      return note;
+    });
+    setNotes(updatedNotes);
+  };
 
   return (
     <>
+      <h1>Notes</h1>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <input
+          onChange={(event) => {
+            setNewNote(event.target.value);
+          }}
+          value={newNote}
+          placeholder="notes"
+        ></input>
+        <button
+          onClick={() => {
+            addNote(newNote);
+            setNewNote("");
+          }}
+        >
+          Add{" "}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div style={{ marginTop: "20px" }}>
+        {notes.map((note) => (
+          <Note
+            key={note.id}
+            id={note.id}
+            text={note.text}
+            completed={note.completed}
+            toggleCompleted={toggleCompleted}
+          />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
