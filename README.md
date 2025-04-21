@@ -1,12 +1,21 @@
-# React + Vite
+# Note Taking App React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses YARN which is different package manager compared to NPM but both of these are package managers only.
 
-Currently, two official plugins are available:
+## Get Started with React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Install NVM (node version manager)
+2. `npm install -g corepack` to install corepack globally
+3. `corepck enable` to enable corepack which includes yarn.
 
-## Expanding the ESLint configuration
+## How to use this project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. ### Installing different packages
+   `yarn add package-name`
+   the package name can be found through the [NPM JS](https://www.npmjs.com/) website.
+2. ### Installing current packages in local
+
+   `yarn`
+
+3. ### Running the app
+   `yarn dev` to run the app in your local terminal.
