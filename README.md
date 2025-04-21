@@ -4,7 +4,7 @@ This project uses YARN which is different package manager compared to NPM but bo
 
 ## Get Started with React
 
-1. Install NVM (node version manager)
+1. Install NVM (node version manager) [NVM Guide](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 2. `npm install -g corepack` to install corepack globally
 3. `corepck enable` to enable corepack which includes yarn.
 
